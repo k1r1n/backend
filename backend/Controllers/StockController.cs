@@ -23,19 +23,5 @@ namespace backend.Controllers
                 connect.Close();
             }
         }
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //    using (MySqlConnection connect = new MySqlConnection("server=localhost;user=root;password=root1234;port=3306;database=mysql"))
-        //    {
-        //        connect.Open();
-        //        MySqlCommand command = new MySqlCommand("delete from cart", connect);
-
-        //        command.ExecuteReader();
-        //        connect.Close();
-        //    }
-        //}
     }
 }
