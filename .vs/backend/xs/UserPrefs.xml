@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{EFA1D175-B0F2-40DF-8262-72E82625C724}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="backend/Controllers/CartController.cs">
+    <Files>
+      <File FileName="backend/Controllers/ProductController.cs" Line="55" Column="1" />
+      <File FileName="backend/Product.cs" Line="10" Column="6" />
+      <File FileName="backend/Controllers/CartController.cs" Line="72" Column="1" />
+      <File FileName="backend/Controllers/StockController.cs" Line="42" Column="136" />
+      <File FileName="backend/Startup.cs" Line="36" Column="31" />
+      <File FileName="backend/Program.cs" Line="1" Column="1" />
+      <File FileName="backend/WeatherForecast.cs" Line="1" Column="1" />
+      <File FileName="backend/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="backend/appsettings.json" Line="9" Column="22" />
+      <File FileName="backend/Stock.cs" Line="8" Column="20" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="backend" expanded="True">
+            <Node name="backend" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="CartController.cs" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.backend PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
