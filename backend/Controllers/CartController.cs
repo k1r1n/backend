@@ -21,7 +21,7 @@ namespace backend.Controllers
             using (MySqlConnection connect = new MySqlConnection("server=localhost;user=root;password=root1234;port=3306;database=mysql"))
             {
                 connect.Open();
-                MySqlCommand command = new MySqlCommand("select * from cart inner join product on cart.product_id = product.id", connect);
+                MySqlCommand command = new MySqlCommand("select * from cart inner join product on cart.product_id = product.id join stock on stock.id = cart.product_id", connect);
                 MySqlDataReader query = command.ExecuteReader();
 
                 while (query.Read())
@@ -31,6 +31,8 @@ namespace backend.Controllers
                     cart.Name = query["name"].ToString();
                     cart.Price = Convert.ToDouble(query["price"]);
                     cart.Count = Convert.ToInt32(query["count"]);
+                    cart.Product_id = query["product_id"].ToString();
+                    cart.Stock = Convert.ToInt32(query["stock"]);
                     carts.Add(cart);
                 }
 
@@ -41,18 +43,18 @@ namespace backend.Controllers
             return carts;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Cart cart)
         {
-
+            using (MySqlConnection connect = new MySqlConnection("server=localhost;user=root;password=root1234;port=3306;database=mysql"))
+            {
+                connect.Open();
+                MySqlCommand command = new MySqlCommand("insert into cart set count = " + cart.Count + ", product_id = " + cart.Id, connect);
+                command.ExecuteReader();
+                connect.Close();
+            }
         }
 
         //PUT api/values/5
@@ -62,24 +64,11 @@ namespace backend.Controllers
             using (MySqlConnection connect = new MySqlConnection("server=localhost;user=root;password=root1234;port=3306;database=mysql"))
             {
                 connect.Open();
-                MySqlCommand command = new MySqlCommand("update cart set count = " + value + " where product_id = 3", connect);
+                MySqlCommand command = new MySqlCommand("update cart set count = " + value + " where product_id = " + id, connect);
                 command.ExecuteReader();
                 connect.Close();
             }
         }
-
-        //[HttpPut("{id}")]
-        //public void Put(int id)
-        //{
-        //    using (MySqlConnection connect = new MySqlConnection("server=localhost;user=root;password=root1234;port=3306;database=mysql"))
-        //    {
-        //        connect.Open();
-        //        MySqlCommand command = new MySqlCommand("delete from cart", connect);
-
-        //        command.ExecuteReader();
-        //        connect.Close();
-        //    }
-        //}
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
@@ -89,7 +78,7 @@ namespace backend.Controllers
             using (MySqlConnection connect = new MySqlConnection("server=localhost;user=root;password=root1234;port=3306;database=mysql"))
             {
                 connect.Open();
-                MySqlCommand command = new MySqlCommand("delete from cart", connect);
+                MySqlCommand command = new MySqlCommand("delete from cart where id = " + id, connect);
                 command.ExecuteReader();
                 connect.Close();
             }
